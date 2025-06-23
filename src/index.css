@@ -5,10 +5,10 @@
 }
 
 html {
-  font-family: "Roboto Slab", sans-serif;
-  line-height: 1.5;
+  font-family: "Arial", sans-serif;
+  line-height: 1.2;
 
-  color: #ebe7ef;
+  color: #ebd6ff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -112,7 +112,7 @@ h1 {
   width: 10rem;
   font-size: 1rem;
   color: #e1dec7;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   margin: 0;
   padding: 0.5rem;
   border-radius: 4px;
@@ -129,7 +129,7 @@ h1 {
   animation: pulse-text 2s infinite;
   background-color: #46432f;
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .player-symbol {
