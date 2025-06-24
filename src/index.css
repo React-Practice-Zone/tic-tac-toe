@@ -6,7 +6,7 @@
 
 html {
   font-family: "Arial", sans-serif;
-  line-height: 1.2;
+  line-height: 1;
 
   color: #ebd6ff;
 
@@ -72,16 +72,28 @@ h1 {
   align-items: center;
   width: 50%;
   border: 2px solid transparent;
+  box-shadow: 0 0 0 0 transparent;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  border-radius: 6px;
+}
+
+#players.highlight-player li {
+  border: 2px solid transparent;
+  transition: all 0.5s ease-in-out;
+  border-radius: 6px;
 }
 
 #players.highlight-player li.active {
-  border-color: #f6e35a;
-  animation: pulse 2s infinite ease-in-out;
+  box-shadow: 0 0 0 2px #f6e35a;
+  background-color: rgba(246, 227, 90, 0.1);
+  transition: all 0.5s ease-in-out;
 }
 
 #players.highlight-player li.active .player-name,
 #players.highlight-player li.active .player-symbol {
   color: #f6e35a;
+  transition: color 0.5s ease-in-out;
 }
 
 #players button {
@@ -112,12 +124,12 @@ h1 {
   width: 10rem;
   font-size: 1rem;
   color: #e1dec7;
-  /* text-transform: uppercase; */
   margin: 0;
   padding: 0.5rem;
   border-radius: 4px;
   text-overflow: ellipsis;
   text-align: center;
+  transition: color 0.5s ease-in-out;
 }
 
 .player input {
@@ -129,7 +141,6 @@ h1 {
   animation: pulse-text 2s infinite;
   background-color: #46432f;
   text-align: center;
-  /* text-transform: uppercase; */
 }
 
 .player-symbol {
