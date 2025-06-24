@@ -1,28 +1,37 @@
-import { useState } from "react";
-
 const initialGameBoard = [
   [null, null, null],
   [null, null, null],
   [null, null, null],
 ];
 
-export default function GameBoard({ changePlayer, activePlayerSymbol }) {
-  const [gameBoard, setGameBoard] = useState(initialGameBoard);
+export default function GameBoard({ changePlayer, turns }) {
+  let gameBoard = initialGameBoard;
+
+  for (const turn of turns) {
+    const { square, player } = turn;
+    const { row, col } = square;
+
+    gameBoard[row][col] = player;
+  }
+
+  // const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
   // * Updating object state in an immutable way
   // * As per React's best practices, we should not mutate the state directly.
   // * Instead, we create a new copy of the state and update that copy.
-  const handleSelectSquare = (rowIndex, colIndex) => {
-    setGameBoard((previousBoard) => {
-      const updatedBoard = [
-        ...previousBoard.map((innerArray) => [...innerArray]),
-      ];
-      updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
-      return updatedBoard;
-    });
+  /* 
+    const handleSelectSquare = (rowIndex, colIndex) => {
+      setGameBoard((previousBoard) => {
+        const updatedBoard = [
+          ...previousBoard.map((innerArray) => [...innerArray]),
+        ];
+        updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
+        return updatedBoard;
+      });
 
-    changePlayer();
-  };
+      changePlayer();
+    };
+  */
 
   return (
     <ol id="game-board">
@@ -32,7 +41,7 @@ export default function GameBoard({ changePlayer, activePlayerSymbol }) {
             {row.map((col, colIndex) => (
               <li key={colIndex} className="game-cell">
                 <button
-                  onClick={() => handleSelectSquare(rowIndex, colIndex)}
+                  onClick={() => changePlayer(rowIndex, colIndex)}
                   disabled={col !== null}
                 >
                   {col}
