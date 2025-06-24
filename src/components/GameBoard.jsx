@@ -31,7 +31,10 @@ export default function GameBoard({ changePlayer, activePlayerSymbol }) {
           <ol>
             {row.map((col, colIndex) => (
               <li key={colIndex} className="game-cell">
-                <button onClick={() => handleSelectSquare(rowIndex, colIndex)}>
+                <button
+                  onClick={() => handleSelectSquare(rowIndex, colIndex)}
+                  disabled={col !== null}
+                >
                   {col}
                 </button>
               </li>
