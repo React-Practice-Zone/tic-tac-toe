@@ -4,21 +4,24 @@ import Player from "./components/Player";
 import GameBoard from "./components/GameBoard";
 import Log from "./components/Log";
 
+function deriveActivePlayer(gameTurns) {
+  let currentPlayer = "X";
+
+  if (gameTurns.length > 0 && gameTurns[0].player === "X") {
+    currentPlayer = "O";
+  }
+
+  return currentPlayer;
+}
+
 function App() {
   const [gameTurns, setGameTurns] = useState([]);
-  const [activePlayer, setActivePlayer] = useState("X");
+
+  const activePlayer = deriveActivePlayer(gameTurns);
 
   const handlePlayerChange = (rowIndex, colIndex) => {
-    setActivePlayer((currentlyActivePlayer) =>
-      currentlyActivePlayer === "X" ? "O" : "X"
-    );
-
     setGameTurns((previousTurns) => {
-      let currentPlayer = "X";
-
-      if (previousTurns.length > 0 && previousTurns[0].player === "X") {
-        currentPlayer = "O";
-      }
+      const currentPlayer = deriveActivePlayer(previousTurns);
 
       const updatedTurns = [
         {
