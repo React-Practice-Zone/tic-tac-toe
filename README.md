@@ -83,6 +83,10 @@ tic-tac-toe/
 - **Background & Fonts:** Retrowave art and fonts from [fonts.cdnfonts.com](https://fonts.cdnfonts.com/) and Google Fonts.
 - **Built with:** [React](https://react.dev/) + [Vite](https://vitejs.dev/)
 
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ---
 
 Enjoy the retro vibes and happy gaming! ✨
